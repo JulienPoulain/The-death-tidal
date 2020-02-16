@@ -8,7 +8,9 @@ struct Area {
 	char *name;
 	char *description;
 	int distance;
-	Sector *sectors;
+	Sector **sectors;
 };
+
+Area* createArea0();
 
 #endif

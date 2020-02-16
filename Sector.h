@@ -3,12 +3,23 @@
 #ifndef SECTOR_H
 #define SECTOR_H
 
+typedef enum SectorType SectorType;
+enum SectorType {
+	// Voies d'accès
+	ALLEY, STREET, BOULEVARD, SUBWAY, SEWER,
+	// Bâtiments
+	HOUSE, PARKING, ARMORY, GAS_STATION, SHOPPING_MALL
+};
+
 typedef struct Sector Sector;
 struct Sector {
+	SectorType sectorType;
 	char *name;
 	char *description;
+	bool entrance;
 	bool revealed;
-	Sector *neighbors;
+	int neighbors_nb;
+	Sector **neighbors;
 };
 
 #endif
