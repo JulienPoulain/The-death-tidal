@@ -3,7 +3,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-typedef enum ItemType Itemtype;
+typedef enum ItemType ItemType;
 enum ItemType {DRINK, FOOD, FUEL, AMMUNITION};
 
 typedef struct Item Item;

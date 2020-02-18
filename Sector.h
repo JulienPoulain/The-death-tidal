@@ -22,4 +22,9 @@ struct Sector {
 	Sector **neighbors;
 };
 
+void displayName(Sector*);
+void displayNeighbors(Sector*);
+int costHunger(Sector*);
+int costThirst(Sector*);
+
 #endif
