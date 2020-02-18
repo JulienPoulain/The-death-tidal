@@ -3,6 +3,8 @@
 #ifndef STORAGE_H
 #define STORAGE_H
 
+typedef struct Item Item;
+
 typedef struct Storage Storage;
 struct Storage {
 	char *name;
