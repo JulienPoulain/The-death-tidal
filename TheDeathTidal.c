@@ -12,11 +12,6 @@
 #include "Initialisation.h"
 #include "TheDeathTidal.h"
 
-#define NB_AREA 3
-#define NB_SECTOR_AREA_0 3
-#define NB_SECTOR_AREA_1 3
-#define NB_SECTOR_AREA_2 3
-
 int main() {
 	int contamination;
 	Character *player;

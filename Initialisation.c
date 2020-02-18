@@ -18,7 +18,7 @@ Area* createArea0() {
 	
 	s0->sectorType = HOUSE;
 	s0->name = "Planque";
-	s0->description = "Il vaut mieux ne pas traîner, cet endroit ne sera plus sûr très longtemps.";
+	s0->description = "Il vaut mieux ne pas trainer, cet endroit ne sera plus sur tres longtemps.";
 	s0->entrance = true;
 	s0->revealed = true;
 	s0->neighbors_nb = 1;
@@ -46,7 +46,7 @@ Area* createArea0() {
 	s2->neighbors[0] = s1;
 	
 	area->name = "Starting town";
-	area->description = "Jusqu'ici ce village isolé était épargné par les zombies. Mais les signes ne trompent pas, une maree va bientot s'abattre deferler. Il ne reste plus qu'a s'echapper le plus loin d'ici.";
+	area->description = "Jusqu'ici ce village isole était epargne par les zombies. Mais les signes ne trompent pas, une maree de mort va bientot y deferler. Il ne reste plus qu'a s'echapper le plus loin d'ici.";
 	area->distance = 0;
 	area->sectors = malloc( 3 * sizeof(Sector*) );
 	
