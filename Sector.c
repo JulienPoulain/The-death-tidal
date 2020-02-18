@@ -74,3 +74,26 @@ int costThirst(Sector *sector) {
 			return 0;
 	};
 }
+
+bool isPassableByCar(Sector* sector) {
+	SectorType sectorType = sector->sectorType;
+	
+	switch (sectorType) {
+		case STREET:
+		case BOULEVARD:
+		case PARKING:
+		case GAS_STATION:
+			return true;
+			break;
+		case ALLEY:
+		case SUBWAY:
+		case SEWER:
+		case HOUSE:
+		case ARMORY:
+		case SHOPPING_MALL:
+			return false;
+			break;
+		default:
+			return false;
+	}
+}

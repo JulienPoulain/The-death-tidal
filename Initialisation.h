@@ -7,4 +7,7 @@ Area* createArea0();
 
 Character* createPlayer(char*);
 
+Car **createCars();
+Sector **createCarsLocation(int, ...);
+
 #endif

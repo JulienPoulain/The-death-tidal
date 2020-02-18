@@ -9,33 +9,36 @@
 #include "Item.h"
 #include "Storage.h"
 #include "Character.h"
+#include "Car.h"
+#include "constantes.h"
 #include "Initialisation.h"
 #include "TheDeathTidal.h"
 
 int main() {
 	int contamination;
-	Character *player;
 	Area *currentArea;
 	Sector *currentSector;
+	Character *player;
+	Car **cars;
+	Sector **carsLocation;
 	
-	player = createPlayer("Rambo");
 	Area *area0 = createArea0();
 	
 	contamination = 0;
 	currentArea = area0;
 	currentSector = currentArea->sectors[0];
-	
-	printf("Contamination : %d\n", contamination);
-	printf("Zone : %s\n", currentArea->name);
-	printf("Secteur : %s\n", currentSector->name);
-	printf("Prochain secteur : %s\n", currentSector->neighbors[0]->name);
-	printf("\n");
+	player = createPlayer("Rambo");
+	cars = createCars();
+	carsLocation = createCarsLocation(NB_CARS, area0->sectors[1]);
 	
 	while (isAlive(player)) {
 		int entry = -1;
 		printf("\n");
 		printf("CONTAMINATION : %d\n", contamination);
 		printf("Secteur : "); displayName(currentSector); printf("\n");
+		if (isACarHere(currentSector, carsLocation)) {
+			printf("Voiture : "); displayCars(currentSector, carsLocation, cars); printf("\n");
+		}
 		
 		printf("\n");
 		printf("ACTIONS\n");
@@ -60,6 +63,26 @@ int main() {
 	}
 	
 	return 0;
+}
+
+bool isACarHere(Sector *sector, Sector **carsLocation) {
+	for (int i=0; i<NB_CARS; i++)
+		if (carsLocation[i] == sector)
+			return true;
+	return false;
+}
+
+void displayCars(Sector *sector, Sector **carsLocation, Car **cars) {
+	bool atLeastOneCar = false;
+	for (int i=0; i<NB_CARS; i++) {
+		if (carsLocation[i] == sector) {
+			if (atLeastOneCar) {
+				atLeastOneCar = false;
+				printf(", ");
+			}
+			printf("%s", cars[i]->name);
+		}
+	}
 }
 
 void displayMoveChoice(Sector *from) {

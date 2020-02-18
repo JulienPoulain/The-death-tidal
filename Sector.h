@@ -26,5 +26,6 @@ void displayName(Sector*);
 void displayNeighbors(Sector*);
 int costHunger(Sector*);
 int costThirst(Sector*);
+bool isPassableByCar(Sector*);
 
 #endif

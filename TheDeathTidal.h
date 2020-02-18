@@ -3,7 +3,8 @@
 #ifndef THE_DEATH_TIDAL_H
 #define THE_DEATH_TIDAL_H
 
-void choices(Sector*);
+bool isACarHere(Sector*, Sector**);
+void displayCars(Sector*, Sector**, Car**);
 void displayMoveChoice(Sector*);
 void displayMoveCost(Sector*, Sector*);
 void moveChoice(Sector**);

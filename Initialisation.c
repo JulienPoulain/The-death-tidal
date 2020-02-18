@@ -2,12 +2,15 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdarg.h>
 
 #include "Sector.h"
 #include "Area.h"
 #include "Item.h"
 #include "Storage.h"
 #include "Character.h"
+#include "Car.h"
+#include "constantes.h"
 #include "Initialisation.h"
 
 Area* createArea0() {
@@ -78,4 +81,41 @@ Character *createPlayer(char *name) {
 	character->inventory = inventory;
 	
 	return character;
+}
+
+Car **createCars() {
+	Storage *trunk0 = malloc( sizeof(Storage) );
+	Car *car0 = malloc( sizeof(Car) );
+	Car **cars = malloc( sizeof(Car*) );
+	
+	trunk0->name = "Coffre";
+	trunk0->item = malloc( 10 * sizeof(Item) );
+	trunk0->size_max = 10;
+	trunk0->size_current = 0;
+	trunk0->capacity_max = 40;
+	trunk0->capacity_current = 0;
+	
+	car0->name = "Vieille voiture";
+	car0->health = 20;
+	car0->health_max = 50;
+	car0->fuel = 5;
+	car0->fuel_max = 20;
+	car0->trunk = trunk0;
+	
+	cars[0] = car0;
+	
+	return cars;
+}
+
+Sector **createCarsLocation(int nbLocation, ...) {
+	Sector **carsLocation = malloc( nbLocation * sizeof(Sector*) );
+	va_list locations;
+	
+	va_start(locations, nbLocation);
+	for (int i=0; i<nbLocation; i++)
+		carsLocation[i] = va_arg(locations, Sector*);
+	
+	va_end(locations);
+	
+	return carsLocation;
 }
